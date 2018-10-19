@@ -5,6 +5,7 @@ def main_check(bot):
     
     @bot.message_handler(commands=['start'])
     def hi_msg(message):
+        print('hi')
         bot.send_message(environ['channel_name'], 'test')
         bot.send_message(message.chat.id, 'Start', reply_markup=tbt.order_row_keyboard(['a', 'b', 'c', 'd']))
 
