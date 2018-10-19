@@ -8,9 +8,6 @@ app = Flask(__name__)
 
 from app import core_bot
 
-#Запускаем основного бота
-core_bot.main_check(bot)
-
 @app.route("/"+environ['token'], methods=['POST'])
 def getMessage():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
