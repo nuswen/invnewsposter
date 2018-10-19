@@ -4,7 +4,6 @@ from os import environ
 
 bot = telebot.TeleBot(environ['token'])
 
-#Запускаем основного бота
 core_bot.main_check(bot)
 
 if __name__ == '__main__':
