@@ -5,12 +5,12 @@ from flask import Flask, request
 
 bot = telebot.TeleBot(environ['token'])
 
-server = Flask(__name__)
+app = Flask(__name__)
 
 #Запускаем основного бота
 core_bot.main_check(bot)
 
-@server.route("/"+environ['token'], methods=['POST'])
+@app.route("/"+environ['token'], methods=['POST'])
 def getMessage():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "!", 200
@@ -18,4 +18,4 @@ def getMessage():
 
 bot.remove_webhook()
 bot.set_webhook(url=environ['app_url']+environ['token'])
-server.run(host="0.0.0.0", port=environ.get('PORT', 5000))
+app.run(host="0.0.0.0", port=environ.get('PORT', 5000))
