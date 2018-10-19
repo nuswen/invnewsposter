@@ -6,7 +6,7 @@ bot = telebot.TeleBot(environ['token'])
 
 app = Flask(__name__)
 
-\from app import core_bot
+#from app import core_bot
 
 @app.route("/"+environ['token'], methods=['POST'])
 def getMessage():
