@@ -2,7 +2,6 @@ from os import environ
 from flask import Flask, request
 import telebot
 from flask_sqlalchemy import SQLAlchemy
-import core_bot
 
 bot = telebot.TeleBot(environ['token'])
 
@@ -10,9 +9,8 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = environ['DATABASE_URL']
 db = SQLAlchemy(app)
 
-core_bot.main_check(bot)
-
-from app import models
+from app import core_bot, models
+core_bot(bot)
 
 @app.route("/"+environ['token'], methods=['POST'])
 def getMessage():
