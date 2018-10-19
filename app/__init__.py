@@ -9,7 +9,8 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = environ['DATABASE_URL']
 db = SQLAlchemy(app)
 
-from app import core_bot, models
+core_bot.main_check(bot)
+from app import models
 
 @app.route("/"+environ['token'], methods=['POST'])
 def getMessage():
