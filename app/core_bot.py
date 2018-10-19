@@ -1,4 +1,5 @@
 import tele_bot_tools as tbt
+from app import bot
 from os import environ
 
 def main_check(bot):
