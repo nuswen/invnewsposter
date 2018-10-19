@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 import telebot
 
 bot = telebot.TeleBot(environ['token'])
-
+print ('hi')
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = environ['DATABASE_URL']
 db = SQLAlchemy(app)
