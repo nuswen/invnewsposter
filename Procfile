@@ -1,2 +1,1 @@
-from app import app
-app.run()
+run __init__.py
