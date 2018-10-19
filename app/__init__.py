@@ -1,13 +1,13 @@
 from os import environ
 from flask import Flask, request
 import telebot
-\from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 
 bot = telebot.TeleBot(environ['token'])
-bot.send_message(environ['channel_name'], 'test')
+
 app = Flask(__name__)
-\app.config['SQLALCHEMY_DATABASE_URI'] = environ['DATABASE_URL']
-\db = SQLAlchemy(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = environ['DATABASE_URL']
+db = SQLAlchemy(app)
 
 from app import core_bot', models
 
