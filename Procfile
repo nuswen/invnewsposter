@@ -1,1 +1,1 @@
-run __init__.py
+web: python main.py
