@@ -9,7 +9,7 @@ import random
 #Рандомно выбираем куда пойдет рынок и выдаем нужную фразу
 def market_wizard():
     #TODO Выбрать направление
-    buysell = random.randrange(-1,1)
+    buysell = random.randrange(0,2)
 
     #TODO Посмотреть прошлое направление
     tempdb = models.answ.query.get(0)
@@ -19,19 +19,19 @@ def market_wizard():
     rand = random.randrange(0,models.answ.query.count())
     message = models.answ.query.get(rand)
     while True:
-        if buysell == 1:
+        if buysell == 2:
             if buysell == lastdir:
                     return message.Buy
             else:
                 return message.Buych
-        elif buysell == -1:
+        elif buysell == 1:
             if buysell == lastdir:
                 return message.Sell
             else:
-                return buysell
+                return message.Sellch
         else:
             if buysell == lastdir:
-                buysell = random.randrange(-1,1)
+                buysell = random.randrange(0,2)
             else:
                 return message.Stop
     
