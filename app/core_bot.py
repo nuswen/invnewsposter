@@ -11,7 +11,8 @@ def market_wizard():
     #TODO Выбрать направление
     #TODO Посмотреть прошлое направление
     #TODO Выбрать соответствующую фразу из БД и отдать
-    message = models.answ.query.get(1)
+    rand = random.randrange(0,models.answ.query.count())
+    message = models.answ.query.get(rand)
     return message.Buy
 
 
