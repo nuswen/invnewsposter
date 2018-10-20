@@ -4,15 +4,15 @@ from app import bot
 from app import db
 from app import models
 import random
+import time
 
 
 #Рандомно выбираем куда пойдет рынок и выдаем нужную фразу
-def market_wizard():
+def market_wizard(tempdb):
     #TODO Выбрать направление
     buysell = random.randrange(-3,4)
 
     #TODO Посмотреть прошлое направление
-    tempdb = models.answ.query.get(0)
     lastdir = tempdb.Lastpos
 
     #TODO Выбрать соответствующую фразу из БД и отдать
@@ -44,11 +44,22 @@ def market_wizard():
         db.session.commit()
         return an
 
+tempdb = models.answ.query.get(0)
+lasttime = tempdb.Lasttime
+curtime = int(time.time())
+divtime = curtime - lasttime
+if divtime > 1800:
+        if random.randrange(divtime/100,100) > 80:
+                tempdb.Lasttime = curtime
+                bot.send_message(environ['channel_name'], market_wizard(tempdb))
+                
+
+
+
 @bot.message_handler(commands=['start'])
 def hi_msg(message):
-    bot.send_message(environ['channel_name'], market_wizard())
-    bot.send_message(message.chat.id, 'Start', reply_markup=tbt.order_row_keyboard(['a', 'b', 'c', 'd']))
-
+    pass
+    
 @bot.callback_query_handler(func=lambda call: True)
 def callback_inline(call):
     if call.data:

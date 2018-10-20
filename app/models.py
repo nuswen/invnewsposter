@@ -8,3 +8,4 @@ class answ(db.Model):
     Sell = db.Column(db.Text)
     Sellch = db.Column(db.Text)
     Stop = db.Column(db.Text)
+    Lasttime = db.Column(db.Integer)
