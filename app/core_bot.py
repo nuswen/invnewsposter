@@ -28,7 +28,7 @@ def market_wizard():
             if buysell == lastdir:
                 return message.Sell
             else:
-                return message.Sellch
+                return buysell
         else:
             if buysell == lastdir:
                 buysell = random.randrange(-1,1)
