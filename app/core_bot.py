@@ -47,7 +47,7 @@ def market_wizard(tempdb):
 tempdb = models.answ.query.get(0)
 lasttime = tempdb.Lasttime
 curtime = int(time.time())
-divtime = curtime - lasttime
+divtime = curtime - int(lasttime)
 print ('ok')
 if divtime > 1800:
         if random.randrange(divtime/100,100) > 80:
