@@ -3,6 +3,7 @@ from os import environ
 from app import bot
 from app import db
 from app import models
+import random
 
 
 #Рандомно выбираем куда пойдет рынок и выдаем нужную фразу
@@ -10,7 +11,8 @@ def market_wizard():
     #TODO Выбрать направление
     #TODO Посмотреть прошлое направление
     #TODO Выбрать соответствующую фразу из БД и отдать
-    return models.answ.query.filter_by(Id=1).all()
+    message = models.answ.query.get(1)
+    return message
 
 
 @bot.message_handler(commands=['start'])
