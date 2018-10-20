@@ -10,7 +10,7 @@ def market_wizard():
     #TODO Выбрать направление
     #TODO Посмотреть прошлое направление
     #TODO Выбрать соответствующую фразу из БД и отдать
-    return models.answ.query.filter_by(Id=1).first()
+    return models.answ.query.filter_by(Id=1).all()
 
 
 @bot.message_handler(commands=['start'])
