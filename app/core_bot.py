@@ -18,6 +18,13 @@ def market_wizard():
     #TODO Выбрать соответствующую фразу из БД и отдать
     rand = random.randrange(0,models.answ.query.count())
     message = models.answ.query.get(rand)
+    
+    lastdir = 1
+    db.session.add(answ)
+    db.session.commit()
+
+    return 0
+    '''
     while True:
         if buysell == 1:
             if buysell == lastdir:
@@ -34,7 +41,7 @@ def market_wizard():
                 buysell = random.randrange(-1,2)
             else:
                 return message.Stop
-    
+    '''
 
 
 
