@@ -19,8 +19,8 @@ def market_wizard():
     rand = random.randrange(0,models.answ.query.count())
     message = models.answ.query.get(rand)
     
-    lastdir = 1
-    db.session.add(lastdir)
+    tempdb.Lastpos = 1
+    db.session.add(tempdb)
     db.session.commit()
 
     return 0
