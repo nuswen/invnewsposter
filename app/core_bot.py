@@ -20,7 +20,7 @@ def market_wizard():
     message = models.answ.query.get(rand)
     
     lastdir = 1
-    db.session.add(answ)
+    db.session.add(lastdir)
     db.session.commit()
 
     return 0
