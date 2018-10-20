@@ -50,7 +50,7 @@ curtime = int(time.time())
 divtime = curtime - int(lasttime)
 print ('ok')
 if divtime > 1800:
-        if random.randrange(divtime/100,100) > 80:
+        if random.randrange(int(divtime/100),100) > 80:
                 tempdb.Lasttime = curtime
                 bot.send_message(environ['channel_name'], market_wizard(tempdb))
                 
