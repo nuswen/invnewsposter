@@ -48,7 +48,7 @@ tempdb = models.answ.query.get(0)
 lasttime = tempdb.Lasttime
 curtime = int(time.time())
 divtime = curtime - int(lasttime)
-print ('ok')
+print (divtime)
 if divtime > 1800:
         if random.randrange(int(divtime/100),100) > 80:
                 tempdb.Lasttime = curtime
