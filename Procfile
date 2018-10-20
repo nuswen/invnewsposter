@@ -1,1 +1,2 @@
-web: python main.py
+from app import app
+app.run()
